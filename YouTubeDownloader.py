@@ -26,10 +26,11 @@ def VideoDownload():
         Yt = YouTube(TheUrl)
 
         if TheQuality == QualityChoices[0]:
-            Select = Yt.streams.filter(progressive=True, file_extension='mp4').first()
+            Select = Yt.streams.filter(progressive=True, file_extension='mp4').last()
 
         elif TheQuality == QualityChoices[1]:
-            Select = Yt.streams.filter(progressive=True, file_extension='mp4').last()
+            Select = Yt.streams.filter(progressive=True, file_extension='mp4').first()
+            
 
         elif TheQuality == QualityChoices[2]:
             Select = Yt.streams.filter(only_video=True, file_extension='mp4').first()
